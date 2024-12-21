@@ -8,7 +8,7 @@ const ListItem = React.memo(
     const [editedTitle, setEditedTitle] = useState(title);
 
     const handleCompleteChange = (id) => {
-      let newTodoData = todoData.map((data) => {
+      const newTodoData = todoData.map((data) => {
         if (data.id === id) {
           completed = !completed;
         }
@@ -25,7 +25,7 @@ const ListItem = React.memo(
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      let newTodoData = todoData.map((data) => {
+      const newTodoData = todoData.map((data) => {
         if (data.id === id) {
           data.title = editedTitle;
         }

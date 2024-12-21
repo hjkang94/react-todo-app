@@ -12,7 +12,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let newTodoData = {
+    const newTodoData = {
       id: Date.now(),
       title: value,
       completed: false,
@@ -24,7 +24,7 @@ const App = () => {
 
   const handleClick = useCallback(
     (id) => {
-      let newTodoData = todoData.filter((data) => data.id !== id);
+      const newTodoData = todoData.filter((data) => data.id !== id);
       setTodoData(newTodoData);
     },
     [todoData],
