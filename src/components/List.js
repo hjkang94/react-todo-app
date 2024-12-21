@@ -3,8 +3,6 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import ListItem from './ListItem';
 
 const List = React.memo(({ todoData, setTodoData, handleClick }) => {
-  console.log('List');
-
   const handleEnd = (result) => {
     console.log('result', result);
 
@@ -14,6 +12,7 @@ const List = React.memo(({ todoData, setTodoData, handleClick }) => {
     const [reorderedItem] = newTodoData.splice(result.source.index, 1);
     newTodoData.splice(result.destination.index, 0, reorderedItem);
     setTodoData(newTodoData);
+    localStorage.setItem('todoData', JSON.stringify(newTodoData));
   };
 
   return (

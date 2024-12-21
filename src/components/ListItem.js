@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 
 const ListItem = React.memo(
   ({ id, title, completed, todoData, setTodoData, provided, snapshot, handleClick }) => {
-    console.log('ListItem');
-
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(title);
 
     const handleCompleteChange = (id) => {
       const newTodoData = todoData.map((data) => {
         if (data.id === id) {
-          completed = !completed;
+          data.completed = !completed;
         }
         return data;
       });
 
       setTodoData(newTodoData);
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
     };
 
     const handleEditChange = (e) => {
@@ -33,6 +32,7 @@ const ListItem = React.memo(
       });
 
       setTodoData(newTodoData);
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
       setIsEditing(false);
     };
 
@@ -71,7 +71,7 @@ const ListItem = React.memo(
             <input
               className="mr-3"
               type="checkbox"
-              defaultChecked={false}
+              defaultChecked={completed}
               onChange={() => handleCompleteChange(id)}
             />
             <span className={completed ? 'line-through' : undefined}>{title}</span>
