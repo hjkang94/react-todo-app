@@ -3,7 +3,7 @@ import './App.css';
 import List from './components/List';
 import Form from './components/Form';
 
-export default function App() {
+const App = () => {
   const [todoData, setTodoData] = useState([]);
   const [value, setValue] = useState('');
 
@@ -33,4 +33,6 @@ export default function App() {
       </div>
     </div>
   );
-}
+};
+
+export default App;

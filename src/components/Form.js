@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Form({ value, setValue, handleSubmit }) {
+const Form = ({ value, setValue, handleSubmit }) => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
@@ -22,4 +22,6 @@ export default function Form({ value, setValue, handleSubmit }) {
       />
     </form>
   );
-}
+};
+
+export default Form;
