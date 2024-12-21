@@ -1,11 +1,8 @@
 import React from 'react';
 
 const ListItem = React.memo(
-  ({ id, title, completed, todoData, setTodoData, provided, snapshot }) => {
-    const handleClick = (id) => {
-      let newTodoData = todoData.filter((data) => data.id !== id);
-      setTodoData(newTodoData);
-    };
+  ({ id, title, completed, todoData, setTodoData, provided, snapshot, handleClick }) => {
+    console.log('ListItem');
 
     const handleCompleteChange = (id) => {
       let newTodoData = todoData.map((data) => {
